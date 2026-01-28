@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Mentorship Session Booked</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f6f8;
+      padding: 0;
+      margin: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .header {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 25px;
+      color: #333;
+    }
+    .details {
+      background: #f9fafb;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .details p {
+      margin: 6px 0;
+    }
+    .footer {
+      font-size: 13px;
+      color: #6b7280;
+      text-align: center;
+      padding: 15px;
+      background: #f4f6f8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>New Mentorship Session</h1>
+  </div>
+
+  <div class="content">
+    <p>Hello Admin,</p>
+
+    <p>
+      A new mentorship session has been booked with the following details:
+    </p>
+
+    <div class="details">
+      <p><strong>User Name:</strong> {{user_name}}</p>
+      <p><strong>Email:</strong> {{user_email}}</p>
+      <p><strong>Contact:</strong> {{contact}}</p>
+      <p><strong>Plan:</strong> {{plan_name}}</p>
+      <p><strong>Price:</strong> ₹{{price}}</p>
+      <p><strong>Date:</strong> {{session_date}}</p>
+      <p><strong>Time:</strong> {{session_time}}</p>
+      <p><strong>Duration:</strong> {{duration_minutes}} minutes</p>
+      <p><strong>Topic:</strong> {{topic}}</p>
+      <p><strong>Payment Method:</strong> {{payment_method}}</p>
+    </div>
+
+    <p>
+      Please ensure availability and follow up if required.
+    </p>
+
+    <p>
+      — <br />
+      <strong>{{platform_name}} System</strong>
+    </p>
+  </div>
+
+  <div class="footer">
+    System generated email for admin records.
+  </div>
+</div>
+
+</body>
+</html>

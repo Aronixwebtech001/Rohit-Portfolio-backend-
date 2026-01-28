@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>New Pitch Received</title>
+</head>
+
+<body style="margin:0; padding:20px; background-color:#f4f6f8; font-family:Arial, Helvetica, sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">
+
+<table width="600" cellpadding="0" cellspacing="0"
+       style="background:#ffffff; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.05); overflow:hidden;">
+
+    <!-- Header -->
+    <tr>
+        <td style="background:#3b82f6; padding:20px; text-align:center;">
+            <h1 style="margin:0; color:#ffffff; font-size:24px;">🚀 New Pitch Received</h1>
+        </td>
+    </tr>
+
+    <!-- Intro -->
+    <tr>
+        <td style="padding:20px;">
+            <p style="margin:0; color:#555; line-height:1.6;">
+                A new pitch has been submitted with the following details:
+            </p>
+        </td>
+    </tr>
+
+    <!-- Pitch Details -->
+    <tr>
+        <td style="padding:0 20px 20px 20px;">
+            <table width="100%" cellpadding="10" cellspacing="0"
+                   style="background:#f9fafb; border-radius:6px;">
+                <tr>
+                    <td width="35%"><b>Name</b></td>
+                    <td width="65%">{{ name }}</td>
+                </tr>
+                <tr>
+                    <td><b>Company</b></td>
+                    <td>{{ company_name }}</td>
+                </tr>
+                <tr>
+                    <td><b>Email</b></td>
+                    <td>
+                        <a href="mailto:{{ email }}" style="color:#3b82f6; text-decoration:none;">
+                            {{ email }}
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Contact Number</b></td>
+                    <td>
+                        <a href="tel:{{ contact_number }}" style="color:#3b82f6; text-decoration:none;">
+                            {{ contact_number }}
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Sector</b></td>
+                    <td>{{ sector }}</td>
+                </tr>
+                <tr>
+                    <td><b>Investment Required</b></td>
+                    <td style="color:#059669; font-weight:bold;">
+                        {{ investment_required }}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <!-- Pitch Summary -->
+    <tr>
+        <td style="padding:0 20px 20px 20px;">
+            <h3 style="margin:0 0 10px 0; color:#333;">📝 Pitch Summary</h3>
+            <div style="background:#f8f9fa; padding:15px; border-left:4px solid #3b82f6; line-height:1.6;">
+                {{ pitch_summary }}
+            </div>
+        </td>
+    </tr>
+
+    <!-- File Attached -->
+    {% if has_file %}
+    <tr>
+        <td style="padding:20px;">
+            <div style="background:#d1fae5; border:1px solid #10b981; padding:15px; border-radius:6px;">
+                <h4 style="margin:0 0 6px 0; color:#065f46;">📎 File Attached</h4>
+                <p style="margin:0; color:#047857;">
+                    <strong>{{ file_name }}</strong> ({{ file_size }})
+                </p>
+            </div>
+        </td>
+    </tr>
+    {% else %}
+    <!-- No File -->
+    <tr>
+        <td style="padding:20px;">
+            <div style="background:#fef3c7; border:1px solid #f59e0b; padding:15px; border-radius:6px;">
+                <h4 style="margin:0 0 6px 0; color:#92400e;">📄 No File Attached</h4>
+                <p style="margin:0; color:#b45309;">
+                    No additional files were attached with this pitch.
+                </p>
+            </div>
+        </td>
+    </tr>
+    {% endif %}
+
+    <!-- Footer -->
+    <tr>
+        <td style="padding:15px; text-align:center; border-top:1px solid #e5e7eb;">
+            <p style="margin:0; font-size:12px; color:#6b7280;">
+                This email was generated automatically by Pitch Platform
+                <br />
+                <span style="font-size:11px;">{{ timestamp }}</span>
+            </p>
+        </td>
+    </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+</body>
+</html>
