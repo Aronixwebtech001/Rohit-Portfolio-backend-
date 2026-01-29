@@ -82,26 +82,39 @@
         </td>
     </tr>
 
-    <!-- File Attached -->
-    {% if has_file %}
+    <!-- Proposal File Link -->
+    {% if proposal_file_url %}
     <tr>
         <td style="padding:20px;">
-            <div style="background:#d1fae5; border:1px solid #10b981; padding:15px; border-radius:6px;">
-                <h4 style="margin:0 0 6px 0; color:#065f46;">📎 File Attached</h4>
-                <p style="margin:0; color:#047857;">
-                    <strong>{{ file_name }}</strong> ({{ file_size }})
+            <div style="background:#ecfeff; border:1px solid #06b6d4; padding:15px; border-radius:6px;">
+                <h4 style="margin:0 0 8px 0; color:#0e7490;">📎 Pitch Proposal</h4>
+                <p style="margin:0 0 12px 0; color:#155e75;">
+                    The pitch proposal has been uploaded securely.
                 </p>
+                <a href="{{ proposal_file_url }}"
+                   target="_blank"
+                   style="
+                       display:inline-block;
+                       padding:10px 18px;
+                       background:#0ea5e9;
+                       color:#ffffff;
+                       text-decoration:none;
+                       border-radius:6px;
+                       font-weight:bold;
+                       font-size:14px;
+                   ">
+                    🔗 View / Download Proposal
+                </a>
             </div>
         </td>
     </tr>
     {% else %}
-    <!-- No File -->
     <tr>
         <td style="padding:20px;">
             <div style="background:#fef3c7; border:1px solid #f59e0b; padding:15px; border-radius:6px;">
-                <h4 style="margin:0 0 6px 0; color:#92400e;">📄 No File Attached</h4>
+                <h4 style="margin:0 0 6px 0; color:#92400e;">📄 No Proposal Uploaded</h4>
                 <p style="margin:0; color:#b45309;">
-                    No additional files were attached with this pitch.
+                    No proposal file was submitted with this pitch.
                 </p>
             </div>
         </td>

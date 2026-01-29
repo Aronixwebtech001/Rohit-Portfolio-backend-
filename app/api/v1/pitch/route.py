@@ -16,13 +16,46 @@ async def health_check():
     return {"status": "OK"}
 
 
+# @router.post("/", summary="Create Pitch", response_model=PitchCreateResponseSchema)
+# async def create_pitch(name: str = Form(...), company_name: str = Form(...), sector: str = Form(...), investment_required: str = Form(...), email: str = Form(...), contact_number: str = Form(...), pitch_summary: str = Form(...), proposal_file: Optional[UploadFile] = File(None)):
+#     """
+#     Create a new pitch (multipart/form-data)
+
+#     - Text fields via Form
+#     - Optional file via UploadFile
+#     """
+
+#     payload = PitchCreateSchema(
+#         name=name,
+#         company_name=company_name,
+#         sector=sector,
+#         investment_required=investment_required,
+#         email=email,
+#         contact_number=contact_number,
+#         pitch_summary=pitch_summary,
+#     )
+
+#     return await PitchController.create_pitch_controller(
+#         payload=payload,
+#         proposal_file=proposal_file,
+#     )
+
 @router.post("/", summary="Create Pitch", response_model=PitchCreateResponseSchema)
-async def create_pitch(name: str = Form(...), company_name: str = Form(...), sector: str = Form(...), investment_required: str = Form(...), email: str = Form(...), contact_number: str = Form(...), pitch_summary: str = Form(...), proposal_file: Optional[UploadFile] = File(None)):
+async def create_pitch(
+    name: str = Form(...),
+    company_name: str = Form(...),
+    sector: str = Form(...),
+    investment_required: str = Form(...),
+    email: str = Form(...),
+    contact_number: str = Form(...),
+    pitch_summary: str = Form(...),
+    proposal_file: Optional[UploadFile] = File(None),  # ✅ actual file
+):
     """
     Create a new pitch (multipart/form-data)
 
     - Text fields via Form
-    - Optional file via UploadFile
+    - proposal_file is an actual file (PDF / PPT / DOC)
     """
 
     payload = PitchCreateSchema(

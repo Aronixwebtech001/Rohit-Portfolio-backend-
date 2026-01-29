@@ -1,6 +1,7 @@
 from fastapi import UploadFile
 from typing import Optional
 
+from app.util.cloudinary_upload import upload_file_to_cloudinary
 from app.schema.pitchSchema import (
     PitchCreateSchema,
     PitchCreateResponseSchema,
@@ -26,20 +27,20 @@ class PitchController:
         Create a new pitch
         """
 
-        file_bytes = None
-        file_name = None
-        file_size = None
-
+        file_url = None
         if proposal_file:
-            file_bytes = await proposal_file.read()
-            file_name = proposal_file.filename
-            file_size = f"{len(file_bytes) / 1024:.2f} KB"
+            upload_result = await upload_file_to_cloudinary(
+                file=proposal_file,
+                folder="pitch/proposals",
+                resource_type="raw",  # pdf/doc/ppt
+            )
+
+            # ✅ ONLY public URL
+            file_url = upload_result["url"]
 
         result = await PitchService.create_pitch_service(
             payload=payload,
-            file_bytes=file_bytes,
-            file_name=file_name,
-            file_size=file_size,
+            proposal_file_url=file_url,
         )
 
         return PitchCreateResponseSchema(**result)

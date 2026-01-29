@@ -70,6 +70,13 @@ class Settings(BaseSettings):
     ADMIN_PASSWORD: str
 
     # --------------------------------------------------
+    #  Cloudinary credential
+    # --------------------------------------------------
+    CLOUDINARY_CLOUD_NAME: str
+    CLOUDINARY_API_KEY: str
+    CLOUDINARY_API_SECRET: str
+
+    # --------------------------------------------------
     # Pydantic config
     # --------------------------------------------------
     model_config = SettingsConfigDict(

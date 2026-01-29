@@ -11,6 +11,7 @@ class PitchCreateSchema(BaseModel):
     email: EmailStr
     contact_number: str = Field(..., min_length=8, max_length=15)
     pitch_summary: str = Field(..., min_length=10, max_length=2000)
+    proposal_file_url: Optional[str] = None
 
 
 class PitchCreateResponseSchema(BaseModel):
