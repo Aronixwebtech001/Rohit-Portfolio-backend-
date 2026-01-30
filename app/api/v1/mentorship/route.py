@@ -4,7 +4,7 @@ from app.controller.mentorship_controller import MentorshipController
 
 router = APIRouter()
 
-@router.get("/availability", response_model=AvailabilityResponse)
+@router.post("/availability", response_model=AvailabilityResponse)
 async def availability(request: AvailabilityRequest):
     return MentorshipController.get_available_slots(request)
 
